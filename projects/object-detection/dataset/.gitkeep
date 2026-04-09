@@ -1,0 +1,13 @@
+# YOLO Dataset Structure
+# 
+# dataset/
+# ├── images/
+# │   ├── train/    # 训练集图片
+# │   └── val/      # 验证集图片
+# └── labels/
+#     ├── train/    # 训练集标注
+#     └── val/      # 验证集标注
+#
+# 标注格式 (YOLO):
+# <class_id> <x_center> <y_center> <width> <height>
+# 所有值都是归一化的 (0-1)

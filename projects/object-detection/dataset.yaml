@@ -1,0 +1,17 @@
+# YOLOv8 目标检测数据集配置
+
+# 数据集路径
+path: ./dataset
+
+# 训练集和验证集
+train: images/train
+val: images/val
+
+# 类别数量
+nc: 3
+
+# 类别名称
+names:
+  0: cat
+  1: dog
+  2: bird

@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Data files
+*.csv
+*.json
+!sample_*.json
+datasets/raw/
+datasets/processed/
+
+# Model files
+*.pth
+*.pt
+*.h5
+*.onnx
+*.pb
+models/
+checkpoints/
+cifar_best.pth
+model.pth
+yolov8*.pt
+
+# Logs
+*.log
+logs/
+tensorboard/
+runs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+*.env
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+
+# Generated images
+*.png
+!images/
+training_curves.png
+confusion_matrix.png
+predictions.png
+result_*
+
+# Documentation build
+docs/_build/
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Utility scripts (not needed in repo)
+organize_files.py
+create_remaining_readmes.py
+move_tutorial_files.py
+add_github_links.py
+extract_code_from_tutorials.py
+organize_code.py

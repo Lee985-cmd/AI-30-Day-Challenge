@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 入门 30 天挑战 - 从零基础到 AI 从业者</title>
+    <meta name="description" content="完整的 30 天 AI 学习计划，费曼学习法驱动，500+ 代码示例，适合零基础学习者">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI 入门 30 天挑战">
+    <meta property="og:description" content="从零基础到 AI 从业者的完整学习路径">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://Lee985-cmd.github.io/AI-30-Day-Challenge/images/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .badge {
+            background: #f0f0f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .cta-buttons {
+            margin-top: 40px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 10px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 80px 0;
+            margin: 40px 0;
+            border-radius: 30px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Roadmap Section */
+        .roadmap {
+            background: white;
+            padding: 80px 0;
+            margin: 40px 0;
+            border-radius: 30px;
+        }
+        
+        .week-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .week-tab {
+            padding: 12px 24px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .week-tab.active,
+        .week-tab:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .week-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .week-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .day-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .day-item {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .day-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .day-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 30px;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Code Preview */
+        .code-preview {
+            background: #1e1e1e;
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 30px;
+            color: white;
+        }
+        
+        .code-window {
+            background: #2d2d2d;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .code-header {
+            background: #3d3d3d;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+        
+        .code-body {
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+        
+        .code-keyword { color: #569cd6; }
+        .code-function { color: #dcdcaa; }
+        .code-string { color: #ce9178; }
+        .code-comment { color: #6a9955; }
+        
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 50px 50px 0 0;
+            margin-top: 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            font-size: 1.5rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🚀 AI 入门 30 天挑战</h1>
+            <p class="subtitle">从零基础到 AI 从业者的完整学习路径</p>
+            
+            <div class="badges">
+                <span class="badge">📚 费曼学习法</span>
+                <span class="badge">💻 500+ 代码示例</span>
+                <span class="badge">🎯 100% 实战</span>
+                <span class="badge">⭐ 完全免费</span>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/Lee985-cmd/AI-30-Day-Challenge" class="btn btn-primary">
+                    ⭐ Star on GitHub
+                </a>
+                <a href="#roadmap" class="btn btn-secondary">
+                    📖 开始学习
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">✨ 为什么选择这个教程？</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>零基础友好</h3>
+                    <p>不需要任何编程或数学背景，从 Hello World 开始，循序渐进</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>费曼学习法</h3>
+                    <p>用大白话解释复杂概念，确保真正理解而不是死记硬背</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>完整代码</h3>
+                    <p>500+ 可运行代码示例，复制即用，边学边练</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>实战项目</h3>
+                    <p>10+ 完整项目，从图像识别到自然语言处理</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>中英双语</h3>
+                    <p>中文详细讲解，英文技术术语，适合全球学习者</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>持续更新</h3>
+                    <p>跟随最新 AI 技术发展，定期添加新内容</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Roadmap Section -->
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <h2 class="section-title">🗺️ 学习路线图</h2>
+            
+            <div class="week-tabs">
+                <div class="week-tab active" onclick="showWeek(1)">Week 1</div>
+                <div class="week-tab" onclick="showWeek(2)">Week 2</div>
+                <div class="week-tab" onclick="showWeek(3)">Week 3</div>
+                <div class="week-tab" onclick="showWeek(4)">Week 4</div>
+                <div class="week-tab" onclick="showWeek(5)">Week 5</div>
+            </div>
+            
+            <div class="week-content active" id="week1">
+                <h3 style="text-align: center; margin-bottom: 30px;">Week 1: 机器学习基础</h3>
+                <ul class="day-list">
+                    <li class="day-item">
+                        <h4>Day 1: Python 和 NumPy 基础</h4>
+                        <p>变量、数据类型、控制流、数组操作</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 2: 监督学习</h4>
+                        <p>KNN、K-Means、分类与回归</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 3: 决策树和随机森林</h4>
+                        <p>信息增益、集成学习、特征重要性</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 4: 支持向量机 (SVM)</h4>
+                        <p>核技巧、最大间隔、非线性分类</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 5: 无监督学习</h4>
+                        <p>K-means 聚类、肘部法则、降维</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 6: 模型评估和优化</h4>
+                        <p>混淆矩阵、交叉验证、超参数调优</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 7: Week1 复习和小项目</h4>
+                        <p>综合应用、完整 ML Pipeline</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="week-content" id="week2">
+                <h3 style="text-align: center; margin-bottom: 30px;">Week 2: 深度学习入门</h3>
+                <ul class="day-list">
+                    <li class="day-item">
+                        <h4>Day 8: 神经网络初探</h4>
+                        <p>神经元、激活函数、前向传播</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 9: 多层神经网络</h4>
+                        <p>反向传播、梯度下降、损失函数</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 10: PyTorch 入门</h4>
+                        <p>Tensor、autograd、nn.Module</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 11: CNN 基础</h4>
+                        <p>卷积层、池化层、特征提取</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 12: 经典 CNN 架构</h4>
+                        <p>LeNet、ResNet、迁移学习</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 13: RNN 和 LSTM</h4>
+                        <p>序列建模、长期依赖、文本处理</p>
+                    </li>
+                    <li class="day-item">
+                        <h4>Day 14: Week2 综合项目</h4>
+                        <p>CIFAR-10 图像分类实战</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="week-content" id="week3">
+                <h3 style="text-align: center; margin-bottom: 30px;">Week 3: 计算机视觉进阶</h3>
+                <ul class="day-list">
+                    <li class="day-item"><h4>Day 15: 目标检测 (YOLO)</h4></li>
+                    <li class="day-item"><h4>Day 16: 图像分割</h4></li>
+                    <li class="day-item"><h4>Day 17: GAN 生成对抗网络</h4></li>
+                    <li class="day-item"><h4>Day 18: Transformer 架构</h4></li>
+                    <li class="day-item"><h4>Day 19: BERT 和大语言模型</h4></li>
+                    <li class="day-item"><h4>Day 20: 语音识别 (Whisper)</h4></li>
+                    <li class="day-item"><h4>Day 21: Week3 综合项目</h4></li>
+                </ul>
+            </div>
+            
+            <div class="week-content" id="week4">
+                <h3 style="text-align: center; margin-bottom: 30px;">Week 4: NLP + RL + 工程化</h3>
+                <ul class="day-list">
+                    <li class="day-item"><h4>Day 22-24: NLP 实战</h4></li>
+                    <li class="day-item"><h4>Day 25-26: 强化学习</h4></li>
+                    <li class="day-item"><h4>Day 27: 模型部署</h4></li>
+                    <li class="day-item"><h4>Day 28: AI 伦理和安全</h4></li>
+                </ul>
+            </div>
+            
+            <div class="week-content" id="week5">
+                <h3 style="text-align: center; margin-bottom: 30px;">Week 5: 前沿技术 + 毕业</h3>
+                <ul class="day-list">
+                    <li class="day-item"><h4>Day 29: 前沿技术概览</h4></li>
+                    <li class="day-item"><h4>Day 30: 毕业项目和职业规划</h4></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>30</h3>
+                    <p>天学习</p>
+                </div>
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>文档文件</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>代码示例</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50K+</h3>
+                    <p>总行数</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Code Preview -->
+    <section class="code-preview">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">💻 代码示例预览</h2>
+            
+            <div class="code-window">
+                <div class="code-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                    <span style="margin-left: 10px; color: #999;">cifar10_project.py</span>
+                </div>
+                <div class="code-body">
+<pre><span class="code-keyword">import</span> torch
+<span class="code-keyword">import</span> torch.nn <span class="code-keyword">as</span> nn
+
+<span class="code-keyword">class</span> <span class="code-function">SimpleCNN</span>(nn.Module):
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(self):
+        <span class="code-function">super</span>().__init__()
+        self.conv1 = nn.Conv2d(<span class="code-number">3</span>, <span class="code-number">64</span>, <span class="code-number">3</span>)
+        self.fc = nn.Linear(<span class="code-number">64</span> * <span class="code-number">16</span> * <span class="code-number">16</span>, <span class="code-number">10</span>)
+    
+    <span class="code-keyword">def</span> <span class="code-function">forward</span>(self, x):
+        x = torch.relu(self.conv1(x))
+        x = x.view(-<span class="code-number">1</span>, <span class="code-number">64</span> * <span class="code-number">16</span> * <span class="code-number">16</span>)
+        <span class="code-keyword">return</span> self.fc(x)
+
+<span class="code-comment"># 训练模型</span>
+model = SimpleCNN()
+optimizer = torch.optim.Adam(model.parameters())
+<span class="code-comment"># ... 更多代码</span></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 style="margin-bottom: 20px;">🚀 准备好开始了吗？</h3>
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px;">
+                从今天开始你的 AI 之旅！
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/Lee985-cmd/AI-30-Day-Challenge" class="btn btn-primary">
+                    ⭐ Star on GitHub
+                </a>
+                <a href="https://github.com/Lee985-cmd/AI-30-Day-Challenge/issues" class="btn btn-secondary">
+                    💬 参与讨论
+                </a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">📧</a>
+                <a href="#" class="social-link">🐦</a>
+                <a href="#" class="social-link">💼</a>
+                <a href="#" class="social-link">💬</a>
+            </div>
+            
+            <p style="margin-top: 30px; color: #999;">
+                Made with ❤️ by the AI Learning Community<br>
+                © 2026 AI 30-Day Challenge. Licensed under MIT.
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        function showWeek(weekNum) {
+            // Hide all week contents
+            document.querySelectorAll('.week-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.week-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected week
+            document.getElementById('week' + weekNum).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
