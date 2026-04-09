@@ -1085,3 +1085,35 @@ RNN:
 ---
 
 *本教程属于 [AI 入门 30 天挑战](https://github.com/Lee985-cmd/AI-30-Day-Challenge) 系列*
+
+
+---
+
+## 🎉 恭喜你完成今天的学习！
+
+### 📚 学习路径导航
+
+| 上一篇 | 当前 | 下一篇 |
+|--------|------|--------|
+| [Day 12](../Day12/README.md) | **Day 13** | ['[Day 14](../Day14/README.md)'] |
+
+### 🔗 资源汇总
+
+- 📘 **完整 30 天教程**：[CSDN 专栏 - AI 入门 30 天挑战](https://blog.csdn.net/m0_67081842?type=blog)
+- 💻 **完整代码 + 项目实战**：[GitHub 仓库](https://github.com/Lee985-cmd/AI-30-Day-Challenge) ⭐欢迎 Star
+- ❓ **遇到问题**：[GitHub Issues](https://github.com/Lee985-cmd/AI-30-Day-Challenge/issues) 提问
+
+### 💬 互动时间
+
+**思考题**：今天的知识点中，哪个让你印象最深刻？为什么？
+
+欢迎在评论区分享你的想法或疑问！👇
+
+### ❤️ 如果有帮助
+
+- 👍 **点赞**：让更多人看到这篇教程
+- ⭐ **Star GitHub**：获取完整代码和项目
+- ➕ **关注专栏**：不错过后续更新
+- 🔄 **分享给朋友**：一起学习进步
+
+**明天见！继续 Day 14 的学习~** 🚀
