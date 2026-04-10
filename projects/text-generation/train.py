@@ -5,6 +5,10 @@
 import torch
 import torch.optim as optim
 from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+import json
+from datetime import datetime
 from model import create_model
 from dataset import TextDataset, load_text_data
 
@@ -27,7 +31,10 @@ def train_epoch(model, dataloader, criterion, optimizer, dataset):
     total_loss = 0
     total_steps = len(dataloader)
     
-    for batch_x, batch_y in dataloader:
+    # 使用进度条
+    progress_bar = tqdm(dataloader, desc=f'Training', leave=False)
+    
+    for batch_x, batch_y in progress_bar:
         batch_x = batch_x.to(DEVICE)
         batch_y = batch_y.to(DEVICE)
         
@@ -42,6 +49,9 @@ def train_epoch(model, dataloader, criterion, optimizer, dataset):
         optimizer.step()
         
         total_loss += loss.item()
+        
+        # 更新进度条
+        progress_bar.set_postfix({'loss': f'{loss.item():.4f}'})
     
     avg_loss = total_loss / total_steps
     return avg_loss
@@ -112,22 +122,55 @@ def train(num_epochs=NUM_EPOCHS):
     print("\n🚀 开始训练...")
     print("-" * 60)
     
+    loss_history = []
+    sample_prompts = ["床前", "春眠", "白日", "红豆"]
+    
     for epoch in range(num_epochs):
         avg_loss = train_epoch(model, dataloader, criterion, optimizer, dataset)
         scheduler.step()
+        loss_history.append(avg_loss)
         
         # 每 5 个 epoch 打印一次
         if (epoch + 1) % 5 == 0 or epoch == 0:
-            print(f"Epoch [{epoch+1}/{num_epochs}] Loss: {avg_loss:.4f}")
+            print(f"\nEpoch [{epoch+1}/{num_epochs}] Loss: {avg_loss:.4f}")
             
-            # 生成示例
-            sample = generate_sample(model, dataset, "床前", length=20, temperature=0.8)
-            print(f"  生成示例: {sample}")
+            # 生成多个示例
+            print("\n✨ 生成示例:")
+            for prompt in sample_prompts:
+                sample = generate_sample(model, dataset, prompt, length=20, temperature=0.8)
+                print(f"  '{prompt}' -> {sample}")
             print("-" * 60)
     
     # 5. 保存模型
-    torch.save(model.state_dict(), 'model.pth')
-    print("\n✅ 模型已保存: model.pth")
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    model_path = f'model_{timestamp}.pth'
+    torch.save(model.state_dict(), model_path)
+    torch.save(model.state_dict(), 'model.pth')  # 最新版本
+    print(f"\n✅ 模型已保存: {model_path}")
+    
+    # 6. 保存训练历史
+    history = {
+        'loss': loss_history,
+        'epochs': num_epochs,
+        'vocab_size': dataset.vocab_size,
+        'timestamp': timestamp
+    }
+    with open('training_history.json', 'w', encoding='utf-8') as f:
+        json.dump(history, f, ensure_ascii=False, indent=2)
+    print(f"✅ 训练历史已保存: training_history.json")
+    
+    # 7. 绘制 loss 曲线
+    plt.figure(figsize=(10, 6))
+    plt.plot(loss_history, linewidth=2)
+    plt.title('Training Loss Curve', fontsize=14)
+    plt.xlabel('Epoch', fontsize=12)
+    plt.ylabel('Loss', fontsize=12)
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig('training_loss.png', dpi=150, bbox_inches='tight')
+    plt.close()
+    print(f"✅ Loss 曲线已保存: training_loss.png")
+    
     print("\n🎉 训练完成！")
     print("=" * 60)
 

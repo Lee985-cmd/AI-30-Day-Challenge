@@ -3,6 +3,7 @@
 """
 
 import torch
+from datetime import datetime
 from model import create_model
 from dataset import TextDataset, load_text_data
 
@@ -89,24 +90,38 @@ def generate(prompt="床前", length=50, temperature=TEMPERATURE, model_path='mo
         print(f"✅ 模型加载成功: {model_path}")
     except FileNotFoundError:
         print(f"❌ 模型文件不存在: {model_path}")
-        print("💡 提示: 请先运行 train.py 训练模型")
+        print("💡 提示: 请先运行 python main.py --mode train 训练模型")
         return
     
-    # 4. 生成文本
-    print(f"\n✨ 生成文本:")
+    # 4. 生成多个温度的文本
+    print(f"\n✨ 生成文本 (不同温度):")
     print("-" * 60)
     
-    generated = generate_text(model, dataset, prompt, length, temperature)
-    print(generated)
+    temperatures = [0.5, 0.8, 1.2]
+    generated_results = {}
+    
+    for temp in temperatures:
+        generated = generate_text(model, dataset, prompt, length, temp)
+        generated_results[temp] = generated
+        print(f"\n温度 {temp}:")
+        print(f"  {generated}")
+    
     print("-" * 60)
     
     # 5. 保存到文件
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open('generated_samples.txt', 'a', encoding='utf-8') as f:
         f.write(f"\n{'='*60}\n")
-        f.write(f"Prompt: {prompt}, Temperature: {temperature}\n")
-        f.write(generated + "\n")
+        f.write(f"时间: {timestamp}\n")
+        f.write(f"Prompt: {prompt}, Length: {length}\n")
+        for temp, text in generated_results.items():
+            f.write(f"\nTemperature {temp}:\n{text}\n")
     
     print("✅ 已保存到: generated_samples.txt")
+    print("\n💡 提示:")
+    print("  - 低温度 (0.5): 更保守、更可预测")
+    print("  - 中温度 (0.8): 平衡")
+    print("  - 高温度 (1.2): 更有创意但可能不通顺")
     print("\n🎉 生成完成！")
 
 

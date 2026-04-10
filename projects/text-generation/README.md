@@ -83,16 +83,29 @@ python main.py --mode train --epochs 50
 > ⏱️ **训练时间预估：**
 > - CPU: 1-2 小时
 > - GPU: 10-20 分钟
+>
+> 📊 **训练过程中会自动生成：**
+> - `model_YYYYMMDD_HHMMSS.pth` - 带时间戳的模型
+> - `training_loss.png` - Loss 曲线图
+> - `training_history.json` - 训练历史数据
 
-### 4. 生成文本
+### 6. 生成文本
 
 ```bash
-# 随机生成
+# 随机生成（默认温度 0.8）
 python main.py --mode generate
 
 # 给定开头生成
 python main.py --mode generate --prompt "床前明月光"
+
+# 指定生成长度和温度
+python main.py --mode generate --prompt "春眠" --length 30 --temperature 1.2
 ```
+
+> ✨ **生成时会同时输出 3 种温度的结果：**
+> - 温度 0.5：更保守、更可预测
+> - 温度 0.8：平衡
+> - 温度 1.2：更有创意但可能不通顺
 
 ## 📊 预期结果
 
@@ -108,8 +121,11 @@ python main.py --mode generate --prompt "床前明月光"
 - 约 10-20 MB
 
 ### 生成文件
-- `model.pth` - 训练好的模型权重
+- `model.pth` - 最新模型权重
+- `model_YYYYMMDD_HHMMSS.pth` - 带时间戳的模型备份
 - `generated_samples.txt` - 生成的文本示例
+- `training_loss.png` - Loss 曲线图
+- `training_history.json` - 训练历史数据
 
 ## 🔧 可调参数
 
@@ -137,31 +153,48 @@ TEMPERATURE = 0.8       # 温度（控制创造性）
 ### 1. 使用更大的数据集
 
 ```python
-# 收集更多诗词
-# 或使用小说、文章等
+# 收集更多诗词（至少 1000 首）
+# 或使用小说、文章等长文本
+# 数据量越大，生成质量越高
 ```
 
-### 2. 尝试 Transformer
+### 2. 调整模型架构
+
+```python
+# 增加 LSTM 层数
+NUM_LAYERS = 3
+
+# 增加隐藏层维度
+HIDDEN_DIM = 512
+
+# 尝试双向 LSTM
+self.lstm = nn.LSTM(..., bidirectional=True)
+```
+
+### 3. 尝试 Transformer
 
 ```python
 # 使用 GPT-2 或其他预训练模型
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+# 效果会比 LSTM 好很多，但需要更多计算资源
 ```
 
-### 3. 调整温度参数
+### 4. 调整温度参数
 
 ```python
 # 探索不同温度的效果
-for temp in [0.5, 0.7, 0.9, 1.2]:
+for temp in [0.3, 0.5, 0.8, 1.0, 1.5]:
     generated = generate(prompt, temperature=temp)
     print(f"Temperature {temp}: {generated}")
 ```
 
-### 4. Beam Search
+### 5. Beam Search
 
 ```python
 # 使用束搜索提高生成质量
 # 而不是简单的贪婪解码或采样
+# 可以参考 HuggingFace Transformers 的实现
 ```
 
 ## 🐛 常见问题
