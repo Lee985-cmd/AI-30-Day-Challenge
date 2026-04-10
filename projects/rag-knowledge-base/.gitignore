@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# 数据文件
+data/
+cache/
+*.log
+
+# 向量数据库
+chroma_db/
+faiss_index/
+
+# 敏感信息
+.env
+config_local.py
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 测试
+test_documents/

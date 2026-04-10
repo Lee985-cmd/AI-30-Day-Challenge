@@ -1,0 +1,23 @@
+# RAG 知识库问答系统依赖
+
+# LangChain 核心
+langchain>=0.1.0
+langchain-community>=0.0.10
+
+# 向量数据库
+chromadb>=0.4.0
+faiss-cpu>=1.7.4  # 或者 faiss-gpu（如果有 GPU）
+
+# 嵌入模型
+openai>=1.0.0
+sentence-transformers>=2.2.0
+
+# 文档处理
+pypdf>=3.0.0
+python-docx>=1.0.0
+unstructured>=0.10.0
+markdown>=3.4.0
+
+# 工具库
+python-dotenv>=1.0.0
+tqdm>=4.65.0
