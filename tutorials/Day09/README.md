@@ -1,4 +1,4 @@
-# Day09 - [主题名称]
+# Day09 - 多层神经网络
 
 ## 📅 学习日期
 2026年4月8日
@@ -25,6 +25,6 @@ Day09 没有单独的 Q0，先复习 Day08 内容
 
 ## 🔗 相关链接
 
-- [← 前一天](../Day08/README.md)
-- [→ 后一天](../Day10/README.md)
+- [← Day08: 神经网络初探](../Day08/README.md)
+- [→ Day10: PyTorch 入门](../Day10/README.md)
 - [总索引](../../README-GitHub.md)

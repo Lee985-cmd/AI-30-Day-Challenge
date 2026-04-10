@@ -24,6 +24,6 @@ Week2 没有单独的 Q0，复习 Day08-13 内容
 
 ## 🔗 相关链接
 
-- [← 前一天](../Day13/README.md)
-- [→ 后一天](../Day15/README.md)
+- [← Day13: RNN 和 LSTM](../Day13/README.md)
+- [→ Day15: 目标检测基础（YOLO）](../Day15/README.md)
 - [总索引](../../README-GitHub.md)

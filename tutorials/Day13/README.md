@@ -1,4 +1,4 @@
-# Day13 - [主题名称]
+# Day13 - RNN 和 LSTM
 
 ## 📅 学习日期
 2026年4月8日
@@ -14,7 +14,6 @@
 - [Q3](./Day13-Q3*.md)
 - [Q4](./Day13-Q4*.md)
 - [Q5](./Day13-Q5*.md)
-- [Q6](./Day13-Q6*.md)
 
 ### 🎉 完成报告
 [🏆 完成总结](./🎉*Day13*.md)
@@ -25,6 +24,6 @@
 
 ## 🔗 相关链接
 
-- [← 前一天](../Day12/README.md)
-- [→ 后一天](../Day14/README.md)
+- [← Day12: 经典 CNN 架构](../Day12/README.md)
+- [→ Day14: Week2 综合项目（CIFAR-10）](../Day14/README.md)
 - [总索引](../../README-GitHub.md)

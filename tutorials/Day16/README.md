@@ -19,23 +19,20 @@
 
 ### Q1-Q6 - 核心内容
 
-#### Q1 - [主题1]
+#### Q1
 [💡 Day16-Q1](./Day16-Q1*.md)
 
-#### Q2 - [主题2]
+#### Q2
 [💡 Day16-Q2](./Day16-Q2*.md)
 
-#### Q3 - [主题3]
+#### Q3
 [💡 Day16-Q3](./Day16-Q3*.md)
 
-#### Q4 - [主题4]
+#### Q4
 [💡 Day16-Q4](./Day16-Q4*.md)
 
-#### Q5 - [主题5]
+#### Q5
 [💡 Day16-Q5](./Day16-Q5*.md)
-
-#### Q6 - [主题6/进阶]
-[💡 Day16-Q6](./Day16-Q6*.md)
 
 ---
 
@@ -118,8 +115,8 @@ python *.py
 - [Day21: Week3 综合项目](Day21/README.md)
 
 ### 前后关联
-- [← 前一天](../Day15/README.md)
-- [→ 后一天](../Day17/README.md)
+- [← Day15: 目标检测基础（YOLO）](../Day15/README.md)
+- [→ Day17: Faster R-CNN](../Day17/README.md)
 
 ### 总体导航
 - [README-30 天挑战总览](../README-GitHub.md)

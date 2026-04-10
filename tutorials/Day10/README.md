@@ -26,6 +26,6 @@
 
 ## 🔗 相关链接
 
-- [← 前一天](../Day09/README.md)
-- [→ 后一天](../Day11/README.md)
+- [← Day09: 多层神经网络](../Day09/README.md)
+- [→ Day11: CNN 基础](../Day11/README.md)
 - [总索引](../../README-GitHub.md)

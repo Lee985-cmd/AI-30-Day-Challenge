@@ -94,15 +94,10 @@ python *.py
 
 ### Week 5 其他天数
 - [Day30: 毕业项目和职业规划](Day30/README.md)
-- [Day31: 主题](Day31/README.md)
-- [Day32: 主题](Day32/README.md)
-- [Day33: 主题](Day33/README.md)
-- [Day34: 主题](Day34/README.md)
-- [Day35: 主题](Day35/README.md)
 
 ### 前后关联
-- [← 前一天](../Day28/README.md)
-- [→ 后一天](../Day30/README.md)
+- [← Day28: AI 伦理和安全](../Day28/README.md)
+- [→ Day30: 毕业项目和职业规划](../Day30/README.md)
 
 ### 总体导航
 - [README-30 天挑战总览](../README-GitHub.md)
@@ -115,11 +110,6 @@ python *.py
 ### Week 5 完成情况
 - ✅ Day29
 - ⏳ Day30
-- ⏳ Day31
-- ⏳ Day32
-- ⏳ Day33
-- ⏳ Day34
-- ⏳ Day35
 
 ---
 

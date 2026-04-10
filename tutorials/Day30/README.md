@@ -88,15 +88,10 @@ python *.py
 
 ### Week 5 其他天数
 - [Day29: 前沿技术概览](Day29/README.md)
-- [Day31: 主题](Day31/README.md)
-- [Day32: 主题](Day32/README.md)
-- [Day33: 主题](Day33/README.md)
-- [Day34: 主题](Day34/README.md)
-- [Day35: 主题](Day35/README.md)
 
 ### 前后关联
-- [← 前一天](../Day29/README.md)
-- [→ 后一天](../Day31/README.md)
+- [← Day29: 前沿技术概览](../Day29/README.md)
+- [→ 回到首页](README.md)
 
 ### 总体导航
 - [README-30 天挑战总览](../README-GitHub.md)
@@ -109,11 +104,6 @@ python *.py
 ### Week 5 完成情况
 - ✅ Day29
 - ✅ Day30
-- ⏳ Day31
-- ⏳ Day32
-- ⏳ Day33
-- ⏳ Day34
-- ⏳ Day35
 
 ---
 

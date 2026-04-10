@@ -21,6 +21,6 @@ Week1 没有单独的 Q0，直接复习 Day01-06 内容
 
 ## 🔗 相关链接
 
-- [← 前一天](../Day06/README.md)
-- [→ 后一天](../Day08/README.md)
+- [← Day06: 模型评估和优化](../Day06/README.md)
+- [→ Day08: 神经网络初探](../Day08/README.md)
 - [总索引](../../README-GitHub.md)

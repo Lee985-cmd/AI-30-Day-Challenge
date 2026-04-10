@@ -1,4 +1,4 @@
-# Day12 - [主题名称]
+# Day12 - 经典 CNN 架构
 
 ## 📅 学习日期
 2026年4月8日
@@ -14,7 +14,6 @@
 - [Q3](./Day12-Q3*.md)
 - [Q4](./Day12-Q4*.md)
 - [Q5](./Day12-Q5*.md)
-- [Q6](./Day12-Q6*.md)
 
 ### 🎉 完成报告
 [🏆 完成总结](./🎉*Day12*.md)
@@ -25,6 +24,6 @@
 
 ## 🔗 相关链接
 
-- [← 前一天](../Day11/README.md)
-- [→ 后一天](../Day13/README.md)
+- [← Day11: CNN 基础](../Day11/README.md)
+- [→ Day13: RNN 和 LSTM](../Day13/README.md)
 - [总索引](../../README-GitHub.md)

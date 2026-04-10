@@ -1,4 +1,4 @@
-# Day02 - [主题名称]
+# Day02 - 监督学习实战（KNN）
 
 ## 📅 学习日期
 2026年4月8日
@@ -25,6 +25,6 @@
 
 ## 🔗 相关链接
 
-- [← 前一天](../Day01/README.md)
-- [→ 后一天](../Day03/README.md)
+- [← Day01: Python 和 NumPy 基础](../Day01/README.md)
+- [→ Day03: 决策树和随机森林](../Day03/README.md)
 - [总索引](../../README-GitHub.md)

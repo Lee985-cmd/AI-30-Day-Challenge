@@ -19,22 +19,22 @@
 
 ### Q1-Q6 - 核心内容
 
-#### Q1 - [主题1]
+#### Q1
 [💡 Day21-Q1](./Day21-Q1*.md)
 
-#### Q2 - [主题2]
+#### Q2
 [💡 Day21-Q2](./Day21-Q2*.md)
 
-#### Q3 - [主题3]
+#### Q3
 [💡 Day21-Q3](./Day21-Q3*.md)
 
-#### Q4 - [主题4]
+#### Q4
 [💡 Day21-Q4](./Day21-Q4*.md)
 
-#### Q5 - [主题5]
+#### Q5
 [💡 Day21-Q5](./Day21-Q5*.md)
 
-#### Q6 - [主题6/进阶]
+#### Q6
 [💡 Day21-Q6](./Day21-Q6*.md)
 
 ---
@@ -118,8 +118,8 @@ python *.py
 - [Day20: 语音识别基础](Day20/README.md)
 
 ### 前后关联
-- [← 前一天](../Day20/README.md)
-- [→ 后一天](../Day22/README.md)
+- [← Day20: 语音识别基础](../Day20/README.md)
+- [→ Day22: Transformer 基础](../Day22/README.md)
 
 ### 总体导航
 - [README-30 天挑战总览](../README-GitHub.md)

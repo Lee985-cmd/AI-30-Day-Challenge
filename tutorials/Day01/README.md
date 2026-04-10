@@ -1,12 +1,9 @@
-# Day01 - [主题名称]
+# Day01 - Python 和 NumPy 基础
 
 ## 📅 学习日期
 2026年4月8日
 
 ## 📋 今日内容
-
-### Q0 - 快速复习
-[📖 Day01-Q0](./Day01-Q0*.md)
 
 ### Q1-Q6 - 核心内容
 - [Q1](./Day01-Q1*.md)
@@ -25,6 +22,6 @@
 
 ## 🔗 相关链接
 
-- [← 前一天](../Day00/README.md)
-- [→ 后一天](../Day02/README.md)
+- [← 回到首页](README.md)
+- [→ Day02: 监督学习实战（KNN）](../Day02/README.md)
 - [总索引](../../README-GitHub.md)
