@@ -709,7 +709,7 @@ Flask 很简单,但性能有限。接下来学习 **FastAPI**,它更快、更现
 
 **扫码关注公众号**：
 
-![公众号二维码](../../../images/logos/ewm.jpg)
+![公众号二维码](../../images/logos/ewm.jpg)
 
 ### 其他平台
 

@@ -617,7 +617,7 @@ Day 14: Week 2 复习 + 项目
 
 **扫码关注公众号**：
 
-![公众号二维码](../../../images/logos/ewm.jpg)
+![公众号二维码](../../images/logos/ewm.jpg)
 
 ### 其他平台
 

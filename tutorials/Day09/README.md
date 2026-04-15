@@ -52,7 +52,7 @@ Day09 没有单独的 Q0，先复习 Day08 内容
 
 **扫码关注公众号**：
 
-![公众号二维码](../../../images/logos/ewm.jpg)
+![公众号二维码](../../images/logos/ewm.jpg)
 
 ### 其他平台
 

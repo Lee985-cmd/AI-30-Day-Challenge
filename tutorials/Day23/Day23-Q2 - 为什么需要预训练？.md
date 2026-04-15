@@ -441,7 +441,7 @@ num_epochs = 3-10  # 根据数据集大小
 
 **扫码关注公众号**：
 
-![公众号二维码](../../../images/logos/ewm.jpg)
+![公众号二维码](../../images/logos/ewm.jpg)
 
 ### 其他平台
 

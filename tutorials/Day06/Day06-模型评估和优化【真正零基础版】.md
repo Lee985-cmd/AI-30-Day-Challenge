@@ -630,7 +630,7 @@ print(f"  平均分：{cv_scores.mean()*100:.2f}% ± {cv_scores.std()*100:.2f}%"
 
 **扫码关注公众号**：
 
-![公众号二维码](../../../images/logos/ewm.jpg)
+![公众号二维码](../../images/logos/ewm.jpg)
 
 ### 其他平台
 
