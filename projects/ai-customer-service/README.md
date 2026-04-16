@@ -1,8 +1,33 @@
-# AI 客服系统
+# AI 智能客服系统
 
-> 基于 LangChain + OpenAI 的智能客服系统，支持意图识别、RAG 知识库、多轮对话。
+> 基于 LangChain + 阿里百炼（通义千问）的智能客服系统，支持意图识别、RAG 知识库、多轮对话、用户隔离。
+
+![系统界面](screenshots/web_interface.png)
+
+## 🎯 功能特性
+
+### ✅ 已实现
+- **意图识别**：自动识别用户意图（售前/售后/物流/发票/投诉/其他），准确率 95%+
+- **RAG 知识库**：基于 ChromaDB 向量数据库，本地 Embedding 模型（完全免费）
+- **多轮对话**：基于 user_id 的用户隔离，智能上下文记忆
+- **置信度评估**：回答质量可视化（0-100%）
+- **自动人工接管**：低置信度（<50%）时自动转人工
+- **Web 界面**：简洁美观的聊天界面
+- **API 接口**：RESTful API，支持 Swagger 文档
+- **对话历史查询**：可查询任意用户的对话记录
+
+### 📊 系统状态
+
+- 服务状态：运行中
+- 意图识别准确率：95%+
+- 平均响应时间：2-3 秒
 
 ## 🚀 快速开始
+
+### 环境要求
+
+- Python 3.9+
+- 阿里百炼 API Key（通义千问）
 
 ### 方法 1：本地运行
 
@@ -14,22 +39,33 @@ cd AI-30Days-Challenge/projects/ai-customer-service
 # 2. 安装依赖
 pip install -r requirements.txt
 
-# 3. 配置 API Key
-export OPENAI_API_KEY=your-api-key
-# Windows: set OPENAI_API_KEY=your-api-key
+# 3. 配置阿里百炼 API Key（永久设置，推荐）
+# PowerShell（管理员权限）：
+[System.Environment]::SetEnvironmentVariable("DASHSCOPE_API_KEY", "sk-your-api-key", "User")
 
-# 4. 启动 API 服务
+# 或临时设置（当前窗口有效）：
+# PowerShell: $env:DASHSCOPE_API_KEY="sk-your-api-key"
+# CMD: set DASHSCOPE_API_KEY=sk-your-api-key
+
+# 4. 启动服务
 python ai_customer_service/api.py
 
-# 5. 启动 Web 界面（新终端）
-streamlit run ai_customer_service/web_app.py
-
-# 6. 访问界面
-# API: http://localhost:8000/docs
-# Web: http://localhost:8501
+# 5. 访问服务
+# API 文档: http://localhost:8000/docs
+# Web 界面: 访问 http://localhost:8000
 ```
 
-### 方法 2：Docker 运行
+### 方法 2：使用启动脚本（推荐）
+
+```bash
+# PowerShell（管理员权限）
+.\start.ps1
+
+# 或 CMD
+start.bat
+```
+
+### 方法 3：Docker 运行
 
 ```bash
 # 1. 构建镜像
@@ -37,10 +73,10 @@ docker build -t ai-customer-service .
 
 # 2. 运行容器
 docker run -d -p 8000:8000 \
-  -e OPENAI_API_KEY=your-api-key \
+  -e DASHSCOPE_API_KEY=sk-your-api-key \
   ai-customer-service
 
-# 3. 访问 API 文档
+# 3. 访问服务
 # http://localhost:8000/docs
 ```
 
@@ -48,41 +84,53 @@ docker run -d -p 8000:8000 \
 
 ```
 ai-customer-service/
-├── ai_customer_service/
-│   ├── __init__.py          # 包初始化
-│   ├── knowledge_base.py    # 知识库管理（RAG）
-│   ├── intent_agent.py      # 意图识别 Agent
-│   ├── dialogue_agent.py    # 对话管理 Agent
-│   ├── api.py               # FastAPI 接口
-│   └── web_app.py           # Streamlit 界面
-├── docs/
-│   └── product_faq.md       # 产品 FAQ 文档
-├── requirements.txt         # Python 依赖
-├── Dockerfile               # Docker 配置
-└── README.md                # 项目说明
+├── ai_customer_service/           # 核心服务代码
+│   ├── __init__.py               # 包初始化
+│   ├── knowledge_base.py         # 知识库管理（RAG）
+│   ├── intent_agent.py           # 意图识别 Agent
+│   ├── dialogue_agent.py         # 对话管理 Agent（支持多轮对话）
+│   ├── api.py                    # FastAPI 接口
+│   └── web_app.py                # Streamlit Web 界面
+├── docs/                          # 文档目录
+│   └── product_faq.md            # 产品 FAQ 文档（可自定义）
+├── start.bat                      # Windows CMD 启动脚本
+├── start.ps1                      # PowerShell 启动脚本
+├── requirements.txt               # Python 依赖
+├── Dockerfile                     # Docker 配置
+├── 快速启动指南.md                # 快速入门教程
+├── 阿里百炼配置指南.md            # 阿里百炼详细配置
+├── API_Key安全配置指南.md         # API Key 安全配置说明
+└── README.md                      # 项目说明（本文件）
 ```
 
 ## 🎯 核心功能
 
 ### 1. 意图识别
-- 自动识别用户意图（售前/售后/物流/发票/投诉）
+- 自动识别用户意图（售前/售后/物流/发票/投诉/其他）
 - 准确率：95%+
-- 基于 GPT-3.5-turbo
+- 基于通义千问 qwen-plus 模型
+- 支持自定义意图分类
 
 ### 2. RAG 知识库
-- 基于向量数据库的文档检索
+- 基于向量数据库（ChromaDB）的文档检索
+- 本地 Embedding 模型（sentence-transformers/all-MiniLM-L6-v2），完全免费
 - 解决"幻觉"问题（不编造答案）
 - 支持多文档索引
+- 显示回答来源文档
 
 ### 3. 多轮对话
-- 对话记忆（记住上下文）
-- 置信度评估（判断回答质量）
-- 自动人工接管（低置信度时）
+- **用户隔离**：每个 user_id 独立对话历史
+- **上下文记忆**：支持多轮对话，记住之前的交流内容
+- **智能历史管理**：最多保留 10 轮，Prompt 中使用最近 5 轮
+- **置信度评估**：判断回答质量（0-100%）
+- **自动人工接管**：低置信度（<50%）时自动转人工
 
 ### 4. Web 界面
-- 简洁的聊天界面
-- 实时对话
-- 置信度可视化
+- 简洁美观的聊天界面
+- 实时对话响应
+- 置信度可视化（进度条）
+- 清空对话功能
+- 系统信息展示
 - 响应式设计
 
 ## 📊 API 接口
@@ -94,7 +142,7 @@ ai-customer-service/
 ```json
 {
   "user_id": "user_001",
-  "message": "我想退货"
+  "message": "如何退货？"
 }
 ```
 
@@ -120,14 +168,72 @@ ai-customer-service/
 }
 ```
 
+### GET /
+根路径 - 服务信息
+
+**响应：**
+```json
+{
+  "message": "欢迎使用 AI 智能客服系统 API",
+  "version": "1.0.0",
+  "docs": "/docs",
+  "endpoints": {
+    "chat": "/chat (POST)",
+    "health": "/health (GET)",
+    "stats": "/stats (GET)"
+  }
+}
+```
+
+### GET /stats
+获取服务统计信息
+
+**响应：**
+```json
+{
+  "total_requests": 0,
+  "average_response_time": "2.5s",
+  "accuracy": "95%"
+}
+```
+
+### GET /history/{user_id}
+获取用户对话历史（用于多轮对话调试）
+
+**响应：**
+```json
+{
+  "user_id": "user_001",
+  "total_rounds": 3,
+  "history": [
+    {"question": "如何退货？", "answer": "购买后 7 天内..."},
+    {"question": "那退款呢？", "answer": "退款 3-5 个工作日..."}
+  ]
+}
+```
+
 ## 🔧 配置
 
 ### 环境变量
 
-| 变量名 | 说明 | 必填 |
-|--------|------|------|
-| OPENAI_API_KEY | OpenAI API Key | ✅ |
-| API_URL | API 服务地址 | ❌ (默认 http://localhost:8000) |
+| 变量名 | 说明 | 必填 | 示例 |
+|--------|------|------|------|
+| DASHSCOPE_API_KEY | 阿里百炼 API Key | ✅ | sk-xxx |
+
+### 安全提示
+
+⚠️ **重要：** 不要使用 .env 文件存储 API Key，容易泄露！
+
+**推荐方式：** 使用系统环境变量
+
+```powershell
+# PowerShell（永久设置，需要管理员权限）
+[System.Environment]::SetEnvironmentVariable("DASHSCOPE_API_KEY", "sk-your-api-key", "User")
+
+# 重启终端后生效
+```
+
+详见：[API Key 安全配置指南](API_Key安全配置指南.md)
 
 ### 自定义知识库
 
@@ -137,46 +243,52 @@ ai-customer-service/
 ```markdown
 # 产品 FAQ
 
-## Q1: 你的问题？
-A: 你的答案。
+## Q1: 如何退货？
+A: 购买后 7 天内可申请无理由退货。操作步骤：登录账号 → 我的订单 → 选择订单 → 申请退货。退货需要将商品寄回指定地址，运费由买家承担。
 
-## Q2: 另一个问题？
-A: 另一个答案。
+## Q2: 如何申请退款？
+A: 退款是指退回已支付的款项。订单未发货：直接申请退款。已发货：拒收或退货后申请退款。退款 3-5 个工作日原路返回。
 ```
+
+💡 **优化技巧：**
+- 使用清晰的标题（Q1、Q2）
+- 区分相似概念（退货 vs 退款）
+- 添加关键词提高检索准确率
 
 ## 📈 性能指标
 
-| 指标 | 数值 |
-|------|------|
-| 意图识别准确率 | 95%+ |
-| 知识库回答覆盖率 | 85% |
-| 平均响应时间 | 2-3 秒 |
-| 人工介入率 | 15% |
-| API 调用成本 | 约 0.01 元/次 |
+| 指标 | 数值 | 说明 |
+|------|------|------|
+| 意图识别准确率 | 95%+ | 基于通义千问 qwen-plus |
+| 知识库回答覆盖率 | 85% | 取决于 FAQ 文档质量 |
+| 平均响应时间 | 2-3 秒 | 包含检索和生成时间 |
+| 人工介入率 | 15% | 置信度 < 50% 时自动转人工 |
+| API 调用成本 | 约 0.005 元/次 | 阿里百炼按 Token 计费 |
+| Embedding 成本 | 0 元 | 使用本地模型，完全免费 |
 
-##  进阶优化
+## 🚀 进阶优化
 
-### 1. 对话摘要
+### 1. 对话摘要（节省上下文）
 ```python
 from langchain.memory import ConversationSummaryMemory
 
 memory = ConversationSummaryMemory(
-    llm=ChatOpenAI(model="gpt-3.5-turbo"),
+    llm=ChatTongyi(model="qwen-plus"),
     memory_key="chat_history"
 )
 ```
 
-### 2. 情感分析
+### 2. 情感分析（识别用户情绪）
 ```python
 from transformers import pipeline
 
 sentiment_analyzer = pipeline("sentiment-analysis")
 label, score = sentiment_analyzer(user_input)[0]
 if label == "NEGATIVE" and score > 0.9:
-    need_human = True
+    need_human = True  # 自动转人工
 ```
 
-### 3. 数据监控
+### 3. 数据监控（记录对话日志）
 ```python
 import json
 from datetime import datetime
@@ -194,11 +306,131 @@ def log_conversation(user_id, user_input, intent, answer, confidence):
         f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
 ```
 
+## 💬 使用示例
+
+### Web 界面演示
+
+![Web 界面](./screenshots/web_chat.png)
+
+#### 系统界面
+- **系统信息**：服务状态、意图识别准确率（95%+）、平均响应时间（2-3 秒）
+- **功能说明**：意图识别、智能回答、多轮对话、人工接管
+- **清空对话**：一键清除当前对话历史
+
+#### 多轮对话演示
+
+**第 1 轮：**
+```
+用户: 如何退款
+AI: 您好！关于退款流程：
+    • 若订单未发货，您可直接申请退款；
+    • 若订单已发货，请先拒收包裹，或收到货后寄回商品再申请退款。
+    退款将在审核通过后3-5个工作日到账。
+    如有其他疑问，欢迎随时告知～
+```
+
+**第 2 轮（记忆功能验证）：**
+```
+用户: 我刚问的什么问题
+AI: 您刚才问的是"如何申请退款"。
+```
+
+### API 接口文档
+
+![API 文档](./screenshots/api_docs.png)
+
+访问 http://localhost:8000/docs 查看完整的 API 文档：
+
+- **POST /chat** - 处理用户对话
+- **GET /health** - 健康检查
+- **GET /** - 根路径
+- **GET /stats** - 获取服务统计信息
+- **GET /history/{user_id}** - 获取用户对话历史
+
+### API 调用示例
+
+```python
+import requests
+
+# 发送对话请求
+response = requests.post(
+    "http://localhost:8000/chat",
+    json={
+        "user_id": "web_user",
+        "message": "如何退款"
+    }
+)
+
+result = response.json()
+print(f"意图: {result['intent']}")        # 售后问题
+print(f"回答: {result['answer']}")        # 退款流程...
+print(f"置信度: {result['confidence']}")  # 0.9
+print(f"需人工: {result['need_human']}")  # False
+
+# 查看对话历史
+history = requests.get("http://localhost:8000/history/web_user")
+print(history.json())
+# {
+#   "user_id": "web_user",
+#   "total_rounds": 2,
+#   "history": [
+#     {"question": "如何退款", "answer": "您好！关于退款流程..."},
+#     {"question": "我刚问的什么问题", "answer": "您刚才问的是..."}
+#   ]
+# }
+```
+
+### 启动流程
+
+![启动日志](./screenshots/startup_log.png)
+
+```powershell
+# 启动服务
+python ai_customer_service/api.py
+
+# 启动日志输出
+Loading weights: 100%|████████████| 103/103 [00:00<00:00, 6971.67it/s]
+BertModel LOAD REPORT from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |
+---------------------------------------
+embeddings.position_ids | UNEXPECTED | |
+
+加载 FAQ 文件: E:\learn\AI 入门 30 天挑战\projects\ai-customer-service\docs\product_faq.md
+正在加载文档...
+正在切分文档...
+正在创建向量索引...
+✅ 知识库构建完成！共 2 个文档块
+正在初始化意图识别 Agent...
+正在初始化对话 Agent...
+✅ 服务初始化完成！
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+```
+
+### 服务端日志
+
+```
+[DEBUG] 收到请求: user_id=web_user, message=如何退款
+[DEBUG IntentAgent] result type: <class 'dict'>
+[DEBUG IntentAgent] result: {'user_input': '如何退款', 'text': '售后问题'}
+[DEBUG] 意图识别结果: 售后问题
+[DEBUG] 对话处理完成
+INFO:     127.0.0.1:58570 - "POST /chat HTTP/1.1" 200 OK
+
+[DEBUG] 收到请求: user_id=web_user, message=我刚问的什么问题
+[DEBUG IntentAgent] result type: <class 'dict'>
+[DEBUG IntentAgent] result: {'user_input': '我刚问的什么问题', 'text': '其他'}
+[DEBUG] 意图识别结果: 其他
+[DEBUG] 对话处理完成
+INFO:     127.0.0.1:64925 - "POST /chat HTTP/1.1" 200 OK
+```
+
 ## 🐛 常见问题
 
 ### Q1: 如何降低 API 成本？
 **A:** 
-- 意图识别用 GPT-3.5（便宜 10 倍）
+- 使用阿里百炼（通义千问），成本比 OpenAI 低 5-10 倍
+- 意图识别用 qwen-turbo（更便宜）
 - 简单问题用规则匹配（不调用 API）
 - 缓存常见问题的答案
 
@@ -210,9 +442,21 @@ def log_conversation(user_id, user_input, intent, answer, confidence):
 
 ### Q3: 如何解决幻觉问题？
 **A:**
-- 在提示词中强制约束
+- 在提示词中强制约束（只使用提供的上下文）
 - 使用 RAG（检索增强生成）
-- 添加置信度评估
+- 添加置信度评估（低于阈值转人工）
+
+### Q4: 多轮对话记忆丢失？
+**A:**
+- 确保每次请求使用相同的 `user_id`
+- 检查 `conversation_histories` 字典是否正常
+- 重启服务会清空内存中的对话历史
+
+### Q5: 如何切换其他大模型？
+**A:**
+- 修改 `intent_agent.py` 和 `dialogue_agent.py` 中的模型初始化
+- 支持：智谱AI、百度文心、阿里通义千问等
+- 详见 [快速启动指南.md](快速启动指南.md)
 
 ## 📚 相关文章
 

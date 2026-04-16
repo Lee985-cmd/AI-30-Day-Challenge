@@ -1,27 +1,32 @@
 """
 意图识别 Agent
 """
-from langchain.chat_models import ChatOpenAI
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
+from langchain_community.chat_models import ChatTongyi
+from langchain_core.prompts import PromptTemplate
+from langchain_classic.chains import LLMChain
 import os
 
 
 class IntentAgent:
     """意图识别 Agent"""
     
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str = None):
         """
         初始化意图识别 Agent
         
         Args:
-            api_key: OpenAI API Key
+            api_key: 阿里云 DashScope API Key（可选，优先使用环境变量）
         """
-        self.api_key = api_key
-        os.environ["OPENAI_API_KEY"] = api_key
+        # 优先使用环境变量
+        self.api_key = api_key or os.getenv("DASHSCOPE_API_KEY")
+        if not self.api_key:
+            raise ValueError("请设置 DASHSCOPE_API_KEY 环境变量或传入 api_key 参数")
         
-        self.llm = ChatOpenAI(
-            model="gpt-3.5-turbo",
+        os.environ["DASHSCOPE_API_KEY"] = self.api_key
+        
+        # 使用通义千问模型
+        self.llm = ChatTongyi(
+            model="qwen-turbo",  # 可使用 qwen-turbo, qwen-plus, qwen-max
             temperature=0
         )
         
@@ -56,8 +61,21 @@ class IntentAgent:
         Returns:
             意图类别
         """
-        intent = self.chain.run(user_input=user_input).strip()
-        return intent
+        # 使用 invoke 替代 run（新版本 API）
+        result = self.chain.invoke({"user_input": user_input})
+        
+        # 调试：打印返回结果类型和内容
+        print(f"[DEBUG IntentAgent] result type: {type(result)}")
+        print(f"[DEBUG IntentAgent] result: {result}")
+        
+        # invoke 返回字典，需要提取 text 字段
+        if isinstance(result, dict):
+            # 尝试多个可能的键
+            intent = result.get("text", result.get("output", result.get("result", "")))
+        else:
+            intent = str(result)
+        
+        return intent.strip()
 
 
 if __name__ == "__main__":

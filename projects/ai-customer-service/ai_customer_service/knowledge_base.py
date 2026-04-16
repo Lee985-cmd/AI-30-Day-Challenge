@@ -1,26 +1,28 @@
 """
 知识库模块 - RAG 实现
 """
-from langchain.document_loaders import TextLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
 import os
 
 
 class KnowledgeBase:
     """知识库管理类"""
     
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str = None):
         """
         初始化知识库
         
         Args:
-            api_key: OpenAI API Key
+            api_key: API Key（可选，本地 Embedding 不需要）
         """
-        self.api_key = api_key
-        os.environ["OPENAI_API_KEY"] = api_key
-        self.embeddings = OpenAIEmbeddings()
+        # 使用本地 Embedding 模型（完全免费，无需 API Key）
+        self.embeddings = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_kwargs={'device': 'cpu'}  # 使用 CPU，如有 GPU 可改为 'cuda'
+        )
         self.vector_db = None
     
     def build_knowledge_base(self, doc_path: str):
