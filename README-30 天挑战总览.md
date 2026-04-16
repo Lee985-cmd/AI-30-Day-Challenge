@@ -50,6 +50,111 @@
 
 ---
 
+## 🆕 最新项目：AI 客服系统实战
+
+### 🤖 项目简介
+
+基于 **LangChain + OpenAI + FastAPI + Streamlit** 的智能客服系统，支持：
+- ✅ 意图识别 Agent（自动分类用户问题）
+- ✅ RAG 知识库（基于产品 FAQ 智能回答）
+- ✅ 多轮对话管理（上下文记忆）
+- ✅ REST API 接口（可集成到其他系统）
+- ✅ Web 交互界面（Streamlit 可视化）
+
+### 📂 项目地址
+
+```
+projects/ai-customer-service/
+├── ai_customer_service/
+│   ├── intent_agent.py      # 意图识别 Agent
+│   ├── knowledge_base.py    # RAG 知识库
+│   ├── dialogue_agent.py    # 对话管理 Agent
+│   ├── api.py               # FastAPI 接口
+│   └── web_app.py           # Streamlit Web 界面
+├── docs/product_faq.md      # 产品 FAQ 知识库
+├── requirements.txt         # Python 依赖
+├── Dockerfile               # Docker 部署配置
+└── README.md                # 项目说明文档
+```
+
+### 🚀 快速开始
+
+```bash
+# 1. 进入项目目录
+cd projects/ai-customer-service
+
+# 2. 安装依赖
+pip install -r requirements.txt
+
+# 3. 配置 API Key
+export OPENAI_API_KEY=your-api-key
+
+# 4. 启动服务
+python ai_customer_service/api.py
+
+# 5. 访问 API 文档
+# http://localhost:8000/docs
+```
+
+### 📖 相关文章
+
+- [公众号文章 - AI 客服系统实战](promotion-articles/公众号文章-AI%20客服系统实战.md) - 完整开发教程
+- [Agent 专题内容日历](promotion-articles/Agent专题内容日历.md) - AI Agent 学习路线
+
+---
+
+## 🛠️ 效率工具：Markdown 转公众号格式
+
+### 📝 工具简介
+
+将 Markdown 格式的文章自动转换为适合微信公众号的富文本格式，解决公众号编辑器格式混乱的问题。
+
+**核心功能：**
+- ✅ **5 种精美主题**（默认/浅色/深色/彩色/极简）
+- ✅ **表格格式化**（自动识别、斑马纹效果）
+- ✅ **数学公式支持**（基础 LaTeX 符号）
+- ✅ **GUI 图形界面**（无需命令行）
+- ✅ **批量转换**（一键处理所有文章）
+
+### 📂 工具地址
+
+```
+tools/
+├── md_to_wechat.py              # 基础版转换器
+├── md_to_wechat_enhanced.py     # 增强版（推荐）
+├── md_to_wechat_gui.py          # GUI 图形界面
+├── README_转换工具说明.md        # 详细说明文档
+├── 完整使用指南.md               # 完整使用手册
+└── 主题对比示例.md               # 主题演示文档
+```
+
+### 🚀 快速开始
+
+**方法 1：GUI 界面（推荐新手）**
+```bash
+python tools/md_to_wechat_gui.py
+```
+
+**方法 2：命令行**
+```bash
+# 查看所有主题
+python tools/md_to_wechat_enhanced.py --list-themes
+
+# 转换文章（指定主题）
+python tools/md_to_wechat_enhanced.py article.md -t colorful
+
+# 批量转换
+batch_convert_all.bat
+```
+
+### 📖 使用文档
+
+- [完整使用指南](tools/完整使用指南.md) - 从入门到精通
+- [主题对比示例](tools/主题对比示例.md) - 5 种主题效果展示
+- [快速指南](公众号发文快速指南.md) - 三步完成发文
+
+---
+
 ## 🌟 为什么是 30 天？
 
 ```
