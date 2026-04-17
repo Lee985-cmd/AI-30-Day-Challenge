@@ -1,0 +1,14 @@
+langchain>=0.1.0
+langchain-community>=0.0.10
+langchain-classic>=0.1.0
+dashscope>=1.14.0
+streamlit>=1.31.0
+openpyxl>=3.1.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+pandas>=2.0.0
+numpy>=1.24.0
+fastapi>=0.109.0
+uvicorn>=0.27.0
+python-multipart>=0.0.6
+pillow>=10.0.0
