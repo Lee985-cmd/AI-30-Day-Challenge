@@ -19,6 +19,10 @@
 
 ### Q1-Q6 - 核心内容
 
+#### 📖 主文档（二选一）
+- [🌱 Day17-Faster R-CNN【真正零基础版】](./Day17-Faster%20R-CNN【真正零基础版】.md)
+- [🎯 Day17-Faster R-CNN【费曼学习法版】](./Day17-Faster%20R-CNN【费曼学习法版】.md) **← 推荐**
+
 #### Q1
 [💡 Day17-Q1](./Day17-Q1*.md)
 
