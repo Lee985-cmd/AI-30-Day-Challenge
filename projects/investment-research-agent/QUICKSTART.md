@@ -6,7 +6,7 @@
 
 ### 当前配置
 - ✅ Python 3.14.3
-- ✅ LOCAL_LLM_URL: `http://localhost:30001/v1`
+- ✅ LOCAL_LLM_URL: 已配置（请设置为你的本地模型地址）
 - ✅ 所有依赖包已安装
 - ✅ 本地模型连接成功
 

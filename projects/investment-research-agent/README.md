@@ -64,7 +64,7 @@ $env:LOCAL_LLM_URL = "http://your-server:port/v1"
 
 **配置说明：**
 - `LOCAL_LLM_URL` 应指向 OpenAI 兼容的 API 接口
-- 例如：`http://localhost:8000/v1` 或 `http://61.49.53.5:30001/v1`
+- 例如：`http://localhost:8000/v1` 或 `http://your-server:port/v1`
 - 支持任何 OpenAI 兼容的本地模型服务（Ollama、LM Studio、vLLM等）
 
 ### 3. 运行示例
