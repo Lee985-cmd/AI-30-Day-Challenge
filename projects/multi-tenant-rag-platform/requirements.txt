@@ -1,0 +1,48 @@
+# 依赖列表
+
+# Web框架
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.6
+
+# 数据库
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+alembic>=1.13.0
+
+# 认证
+PyJWT>=2.8.0
+passlib[bcrypt]>=1.7.4
+python-jose[cryptography]>=3.3.0
+
+# RAG相关
+langchain>=0.1.0
+langchain-openai>=0.0.5
+chromadb>=0.4.0
+tiktoken>=0.5.0
+
+# 缓存和限流
+redis>=5.0.0
+slowapi>=0.1.9
+
+# 配置
+python-dotenv>=1.0.0
+pydantic-settings>=2.1.0
+
+# 监控
+prometheus-client>=0.19.0
+opentelemetry-api>=1.22.0
+opentelemetry-sdk>=1.22.0
+
+# 工具
+python-dateutil>=2.8.0
+uuid-utils>=0.12.0
+
+# 测试
+pytest>=7.4.0
+pytest-asyncio>=0.23.0
+httpx>=0.26.0
+
+# Streamlit管理后台
+streamlit>=1.30.0
+plotly>=5.18.0
