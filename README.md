@@ -1,6 +1,6 @@
 # AI 入门 30 天挑战 🚀
 
-> 🤖 **30 天 AI 零基础到实战** | 📚 费曼学习法教程 | 10 个完整项目可运行  
+> 🤖 **30 天 AI 零基础到实战** | 📚 费曼学习法教程 | 11 个完整项目可运行  
 > Python 基础 → 机器学习 → 深度学习 → CV/NLP 实战 → Agent 应用 → 模型部署
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -24,7 +24,7 @@
 
 ## 📦 项目内容
 
-### 🎯 10 个完整项目（可直接运行）
+### 🎯 11 个完整项目（可直接运行）
 
 #### 基础项目（适合入门）
 | 项目 | 技术 | 难度 | 适合人群 |
@@ -43,6 +43,7 @@
 | 🔍 **RAG 知识库系统** | 向量检索, RAG | ⭐⭐⭐⭐ | 想学知识管理 |
 | 🧠 **AutoGPT 演示** | 自主Agent | ⭐⭐⭐⭐⭐ | 想学前沿技术 |
 | ⚡ **Agent性能优化** | 缓存/异步/批处理 | ⭐⭐⭐⭐ | 想学性能调优 |
+| 🏢 **多租户RAG平台** | 数据隔离/RBAC/配额 | ⭐⭐⭐⭐⭐ | 想学企业架构 |
 
 ### 📚 30 天系统教程
 
@@ -116,6 +117,7 @@ python main.py --mode train
 第 4 步: 智能投研助手          → 学习多Agent协作
 第 5 步: AutoGPT 演示          → 学习自主Agent系统
 第 6 步: Agent性能优化         → 学习性能调优技巧
+第 7 步: 多租户RAG平台         → 学习企业级架构设计
 ```
 
 ### 💼 求职导向
@@ -165,9 +167,9 @@ python main.py --mode train
 | 指标 | 数据 |
 |------|------|
 | 教程字数 | 150,000+ 字 |
-| 代码行数 | 12,000+ 行 |
+| 代码行数 | 14,000+ 行 |
 | 代码示例 | 200+ 个 |
-| 完整项目 | 10 个 |
+| 完整项目 | 11 个 |
 | 学习时长 | 30 天（每天 2-3 小时） |
 | 许可证 | MIT（完全免费） |
 
@@ -179,7 +181,7 @@ python main.py --mode train
 AI-30-Day-Challenge/
 ├── tutorials/               # 30 天教程（费曼学习法解答集）
 ├── code/                    # 所有代码示例（按天分类）
-├── projects/                # 10 个完整项目
+├── projects/                # 11 个完整项目
 │   ├── cifar10-classification/      # 图像分类
 │   ├── text-generation/             # 文本生成
 │   ├── object-detection/            # 目标检测
@@ -189,7 +191,8 @@ AI-30-Day-Challenge/
 │   ├── investment-research-agent/   # 智能投研助手
 │   ├── rag-knowledge-base/          # RAG 知识库
 │   ├── autogpt-demo/                # AutoGPT 演示
-│   └── agent-performance-optimizer/ # Agent性能优化
+│   ├── agent-performance-optimizer/ # Agent性能优化
+│   └── multi-tenant-rag-platform/   # 多租户RAG平台
 ├── docs/                    # 学习指南和 FAQ
 ├── promotion-articles/      # CSDN 推广文章
 └── README.md                # 本文件
@@ -199,6 +202,7 @@ AI-30-Day-Challenge/
 
 ## 📝 最近更新
 
+- 2026-05-06: 新增 多租户RAG平台项目（数据隔离/RBAC/配额管理）
 - 2026-04-29: 新增 Agent性能优化工具包（缓存/异步/批处理）
 - 2026-04-23: 新增 AutoGPT 演示项目（自主Agent系统）
 - 2026-04-21: 新增智能投研助手项目（多Agent协作）
