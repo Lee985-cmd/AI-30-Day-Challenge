@@ -1,0 +1,29 @@
+# 依赖列表
+
+# Web框架
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# Prometheus监控
+prometheus-client>=0.19.0
+
+# OpenTelemetry链路追踪
+opentelemetry-api>=1.22.0
+opentelemetry-sdk>=1.22.0
+opentelemetry-exporter-jaeger>=1.22.0
+opentelemetry-instrumentation-fastapi>=0.43b0
+opentelemetry-instrumentation-requests>=0.43b0
+
+# 日志
+python-json-logger>=2.0.7
+
+# Redis（缓存和限流）
+redis>=5.0.0
+
+# 配置
+python-dotenv>=1.0.0
+
+# 测试
+pytest>=7.4.0
+pytest-asyncio>=0.23.0
+httpx>=0.26.0

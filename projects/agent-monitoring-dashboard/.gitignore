@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# 环境变量
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+docker-compose.override.yml
+
+# 日志
+*.log
+
+# 临时文件
+.DS_Store
