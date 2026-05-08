@@ -1,0 +1,23 @@
+# 依赖列表
+
+# LangChain
+langchain>=0.1.0
+langchain-openai>=0.0.5
+langchain-core>=0.1.0
+
+# 测试框架
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# RAG评估
+ragas>=0.0.20
+datasets>=2.14.0
+
+# A/B测试
+scipy>=1.11.0
+numpy>=1.24.0
+
+# 其他工具
+python-dotenv>=1.0.0
+tqdm>=4.66.0
