@@ -48,4 +48,4 @@ langgraph-workflows/
 ## 🔗 相关链接
 
 - [LangGraph文档](https://langchain-ai.github.io/langgraph/)
-- [配套文章](链接)
+- [配套文章](https://blog.csdn.net/m0_67081842/article/details/160877045?spm=1001.2014.3001.5502)
