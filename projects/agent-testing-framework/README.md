@@ -78,6 +78,6 @@ agent-testing-framework/
 
 ## 🔗 相关链接
 
-- [配套文章](链接)
+- [配套文章](https://blog.csdn.net/m0_67081842/article/details/160911306?spm=1011.2415.3001.5331)
 - [RAGAS文档](https://docs.ragas.io/)
 - [pytest文档](https://docs.pytest.org/)
