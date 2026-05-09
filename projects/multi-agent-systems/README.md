@@ -63,6 +63,6 @@ multi-agent-systems/
 
 ## 🔗 相关链接
 
+- [配套文章](https://blog.csdn.net/m0_67081842/article/details/160911514?spm=1011.2415.3001.5331)
 - [CrewAI文档](https://docs.crewai.com/)
 - [LangGraph文档](https://langchain-ai.github.io/langgraph/)
-- [配套文章](链接待更新)
