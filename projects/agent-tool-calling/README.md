@@ -53,6 +53,6 @@ agent-tool-calling/
 
 ## 🔗 相关链接
 
+- [配套文章](https://blog.csdn.net/m0_67081842/article/details/161003359?spm=1011.2415.3001.5331)
 - [LangChain Tools文档](https://python.langchain.com/docs/modules/agents/tools/)
 - [Function Calling指南](https://platform.openai.com/docs/guides/function-calling)
-- [配套文章](链接待更新)
