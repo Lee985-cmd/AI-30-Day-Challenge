@@ -195,7 +195,8 @@ AI-30-Day-Challenge/
 │   ├── autogpt-demo/                # AutoGPT 演示
 │   ├── agent-performance-optimizer/ # Agent性能优化
 │   ├── multi-tenant-rag-platform/   # 多租户RAG平台
-│   └── agent-monitoring-dashboard/  # Agent监控Dashboard
+│   ├── agent-monitoring-dashboard/  # Agent监控Dashboard
+│   └── agent-framework-comparison/  # Agent框架对比（LangChain/LlamaIndex/Haystack）
 ├── docs/                    # 学习指南和 FAQ
 ├── promotion-articles/      # CSDN 推广文章
 └── README.md                # 本文件
@@ -205,6 +206,7 @@ AI-30-Day-Challenge/
 
 ## 📝 最近更新
 
+- 2026-05-13: 新增 Agent框架对比项目（LangChain vs LlamaIndex vs Haystack深度对比）
 - 2026-05-07: 新增 Agent监控Dashboard项目（Prometheus/Grafana/ELK）
 - 2026-05-06: 新增 多租户RAG平台项目（数据隔离/RBAC/配额管理）
 - 2026-04-29: 新增 Agent性能优化工具包（缓存/异步/批处理）
