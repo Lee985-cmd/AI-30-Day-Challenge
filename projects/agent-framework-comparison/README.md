@@ -104,7 +104,7 @@ agent-framework-comparison/
 
 ## 🔗 相关链接
 
-- [配套文章](https://blog.csdn.net/m0_67081842/article/details/XXXXXX?spm=1011.2415.3001.5331)
+- [配套文章](https://blog.csdn.net/m0_67081842/article/details/161036578?spm=1011.2415.3001.5331)
 - [LangChain官方文档](https://python.langchain.com/)
 - [LlamaIndex官方文档](https://docs.llamaindex.ai/)
 - [Haystack官方文档](https://haystack.deepset.ai/)
